@@ -6,6 +6,6 @@ package events;
 public class Explosion {
 
     public void Explosion(){
-        //This void will contain all the explosion code!
+        //This void will contain all the explosion code! Test :D
     }
 }
