@@ -3,6 +3,7 @@
  */
 import com.google.inject.Inject;
 import commands.Explode;
+import events.Explosion;
 import org.slf4j.Logger;
 import org.spongepowered.api.Game;
 import org.spongepowered.api.entity.player.Player;
@@ -25,6 +26,7 @@ public class Grenadier {
     public void onServerStart(ServerStartedEvent event) {
         startPrint();
         loadCommands();
+        registerEvents();
     }
 
     public void loadCommands(){
@@ -43,6 +45,10 @@ public class Grenadier {
 
         cmd.register(this, cmdHello, "helloworld", "hello", "Test");
         cmd.register(this, cmdGrenade, "grenadier", "grenade");
+    }
+
+    public void registerEvents(){
+        game.getEventManager().register(this, new Explosion());
     }
 
     public void startPrint(){
